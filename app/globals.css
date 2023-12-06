@@ -80,3 +80,17 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .text-purple-gradient {
+    @apply bg-gradient-to-r from-fuchsia-600 to-pink-600 px-4 p-2 bg-clip-text text-transparent;
+  }
+
+  .bg-purple-gradient {
+    @apply bg-gradient-to-r from-fuchsia-600 to-pink-600 px-4 p-2 text-white;
+  }
+
+  .headerOne {
+    @apply text-3xl md:text-6xl;
+  }
+}

@@ -1,14 +1,17 @@
-const layout = ({
+const MarketingLayout = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
   return (
-    <div className='bg-slate-400 w-full h-full'>
-      <h1>Marketing Layout</h1>
-      {children}
+    <div className='bg-slate-100 w-full h-full'>
+      {/* navbar */}
+      <main className='pt-40 pb-20 bg-slate-100'>
+        {children}
+      </main>
+      {/* footer */}
     </div>
   );
 };
 
-export default layout;
+export default MarketingLayout;
