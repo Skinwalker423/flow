@@ -5,6 +5,7 @@ import { Medal } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/Logo";
 
 const headingFont = localFont({
   src: "../../public/fonts/font.woff2",
@@ -39,6 +40,7 @@ const MarketingPage = () => {
           <Medal className='h-6 w-6 mr-2' />
           No 1 task management
         </div>
+        <Logo />
         <h1 className='headerOne text-center text-neutral-800 mb-6'>
           Flow helps teams move
         </h1>
