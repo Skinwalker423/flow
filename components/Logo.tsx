@@ -11,7 +11,7 @@ const headingFont = localFont({
 const Logo = () => {
   return (
     <Link href={"/"}>
-      <div className='hover:opacity-75 transition items-center gap-x-2 hidden md:flex border'>
+      <div className='hover:opacity-75 transition items-center gap-x-2 hidden md:flex'>
         <Image
           src={"/logoipsum-277.svg"}
           alt='logo'
@@ -20,7 +20,7 @@ const Logo = () => {
         />
         <p
           className={cn(
-            "text-lg text-neutral-700 pb-1",
+            "text-lg text-neutral-700",
             headingFont.className
           )}
         >
