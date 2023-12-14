@@ -17,5 +17,5 @@ export const OrgControl = () => {
     });
   }, [setActive, id]);
 
-  return <div>org-control</div>;
+  return null;
 };

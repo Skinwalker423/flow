@@ -31,8 +31,8 @@ const NavBar = () => {
       <div className='flex gap-3'>
         <OrganizationSwitcher
           hidePersonal
-          afterCreateOrganizationUrl={"/organization:id"}
-          afterSelectOrganizationUrl={"/organization:id"}
+          afterCreateOrganizationUrl={"/organization/:id"}
+          afterSelectOrganizationUrl={"/organization/:id"}
           afterLeaveOrganizationUrl={"/select-org"}
           appearance={{
             elements: {

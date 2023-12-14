@@ -1,3 +1,5 @@
+import { OrgControl } from "../../_components/org-control";
+
 const OrganizationIdLayout = ({
   children,
 }: {
@@ -5,7 +7,7 @@ const OrganizationIdLayout = ({
 }) => {
   return (
     <>
-      {/* <OrgControl /> */}
+      <OrgControl />
       {children}
     </>
   );
