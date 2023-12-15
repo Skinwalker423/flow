@@ -1,5 +1,11 @@
 "use client";
 
+import {
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+
 export type Organization = {
   id: string;
   slug: string;
@@ -21,7 +27,21 @@ const NavItem = ({
   onExpand,
   organization,
 }: NavItemProps) => {
-  return <div>NavItem</div>;
+  return (
+    <AccordionItem
+      className='border-none'
+      value={organization.id}
+    >
+      <AccordionTrigger
+        onClick={() => onExpand(organization.id)}
+      >
+        {organization.name}
+      </AccordionTrigger>
+      <AccordionContent>
+        More info about the {organization.name}
+      </AccordionContent>
+    </AccordionItem>
+  );
 };
 
 export default NavItem;
