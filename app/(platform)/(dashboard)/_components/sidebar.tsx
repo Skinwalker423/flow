@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Accordion } from "@/components/ui/accordion";
+import NavItem, { Organization } from "./navitem";
 
 interface SideBarProps {
   storageKey?: string;
@@ -35,13 +36,15 @@ const SideBar = ({
       },
     });
 
-  const defaultAccordianValue = Object.keys(expanded).map(
-    (key) => {
-      if (expanded[key]) {
-        return key;
-      }
+  const defaultAccordianValue = Object.keys(
+    expanded
+  ).reduce((acc: string[], key) => {
+    if (expanded[key]) {
+      acc.push(key);
     }
-  );
+
+    return acc;
+  }, []);
 
   if (
     !isLoadedOrg ||
@@ -62,7 +65,43 @@ const SideBar = ({
     }));
   };
 
-  return <div>SideBar</div>;
+  return (
+    <>
+      <div className='font-medium text-xs flex items-center mb-1'>
+        <span className='p1-4'>Workspaces</span>
+        <Button
+          asChild
+          type='button'
+          size={"icon"}
+          variant={"ghost"}
+          className='ml-auto'
+        >
+          <Link href={"/select-org"}>
+            <Plus className='h-4 w-4' />
+          </Link>
+        </Button>
+      </div>
+      <Accordion
+        type='multiple'
+        defaultValue={defaultAccordianValue}
+        className='space-y-2'
+      >
+        {userMemberships.data.map(({ organization }) => {
+          return (
+            <NavItem
+              key={organization.id}
+              isActive={
+                organization.id === activeOrganization?.id
+              }
+              isExpanded={expanded[organization.id]}
+              organization={organization as Organization}
+              onExpand={onExpand}
+            />
+          );
+        })}
+      </Accordion>
+    </>
+  );
 };
 
 export default SideBar;
