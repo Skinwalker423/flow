@@ -6,6 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export type Organization = {
   id: string;
@@ -42,7 +43,16 @@ const NavItem = ({
             "bg-sky-500/10 text-sky-700"
         )}
       >
-        {organization.name}
+        <div className='flex items-center gap-x-2'>
+          <div className='w-7 h-7 relative'>
+            <Image
+              src={organization.imageUrl}
+              alt={organization.name}
+              fill
+              className='object-contain '
+            />
+          </div>
+        </div>
       </AccordionTrigger>
       <AccordionContent>
         More info about the {organization.name}
