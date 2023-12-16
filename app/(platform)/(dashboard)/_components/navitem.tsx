@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 import {
   Activity,
@@ -14,6 +15,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 
 export type Organization = {
   id: string;
@@ -36,6 +38,9 @@ const NavItem = ({
   onExpand,
   organization,
 }: NavItemProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
   const routes = [
     {
       label: "Boards",
@@ -58,6 +63,10 @@ const NavItem = ({
       href: `/organization/${organization.id}/billing`,
     },
   ];
+
+  const handleOnClick = (href: string) => {
+    router.push(href);
+  };
 
   return (
     <AccordionItem
@@ -88,8 +97,26 @@ const NavItem = ({
           </span>
         </div>
       </AccordionTrigger>
-      <AccordionContent>
-        More info about the {organization.name}
+      <AccordionContent className='pt-1 text-neutral-700'>
+        {routes.map(({ href, label, icon }) => {
+          return (
+            <Button
+              className={cn(
+                "w-full font-normal justify-start pl-10 mb-1",
+                pathname === href &&
+                  "bg-sky-500/10 text-sky-700"
+              )}
+              type='button'
+              size={"sm"}
+              variant={"ghost"}
+              key={href}
+              onClick={() => handleOnClick(href)}
+            >
+              {icon}
+              {label}
+            </Button>
+          );
+        })}
       </AccordionContent>
     </AccordionItem>
   );
