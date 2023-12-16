@@ -1,12 +1,19 @@
 "use client";
 
+import Image from "next/image";
+import {
+  Activity,
+  CreditCard,
+  Layout,
+  Settings,
+} from "lucide-react";
+
+import { cn } from "@/lib/utils";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 export type Organization = {
   id: string;
@@ -29,6 +36,29 @@ const NavItem = ({
   onExpand,
   organization,
 }: NavItemProps) => {
+  const routes = [
+    {
+      label: "Boards",
+      icon: <Layout className='h-4 w-4 mr-2' />,
+      href: `/organization/${organization.id}`,
+    },
+    {
+      label: "Activity",
+      icon: <Activity className='h-4 w-4 mr-2' />,
+      href: `/organization/${organization.id}/activity`,
+    },
+    {
+      label: "Settings",
+      icon: <Settings className='h-4 w-4 mr-2' />,
+      href: `/organization/${organization.id}/settings`,
+    },
+    {
+      label: "Billing",
+      icon: <CreditCard className='h-4 w-4 mr-2' />,
+      href: `/organization/${organization.id}/billing`,
+    },
+  ];
+
   return (
     <AccordionItem
       className='border-none'
@@ -49,9 +79,13 @@ const NavItem = ({
               src={organization.imageUrl}
               alt={organization.name}
               fill
-              className='object-contain '
+              sizes='(max-width: 28px)'
+              className='object-cover rounded-sm'
             />
           </div>
+          <span className='text-sm font-medium'>
+            {organization.name}
+          </span>
         </div>
       </AccordionTrigger>
       <AccordionContent>
