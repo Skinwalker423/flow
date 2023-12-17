@@ -6,11 +6,12 @@ import {
 
 import Logo from "@/components/Logo";
 import { Button } from "@/components/ui/button";
+import MobileSidebar from "./mobile-sidebar";
 
 const NavBar = () => {
   return (
     <nav className='fixed z-50 top-0 w-full h-14 border-b shadow-sm px-4 bg-white flex items-center justify-between'>
-      {/* mobile sidebar */}
+      <MobileSidebar />
       <div className='flex items-center gap-x-4'>
         <div className='hidden md:flex'>
           <Logo />
