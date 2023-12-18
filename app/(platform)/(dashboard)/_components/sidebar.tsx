@@ -53,7 +53,9 @@ const SideBar = ({
   ) {
     return (
       <>
-        <Skeleton />
+        <div>
+          <Skeleton />
+        </div>
       </>
     );
   }
