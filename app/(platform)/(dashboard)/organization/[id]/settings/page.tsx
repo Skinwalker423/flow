@@ -1,12 +1,6 @@
 import { OrganizationProfile } from "@clerk/nextjs";
 
-const OrganizationIdSettingsPage = ({
-  params,
-}: {
-  params: { id: string };
-}) => {
-  console.log("params", params);
-
+const OrganizationIdSettingsPage = () => {
   return (
     <div className='w-full'>
       <OrganizationProfile
