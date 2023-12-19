@@ -32,5 +32,5 @@ export async function createBoard(formData: FormData) {
 
   revalidatePath(`/organization/${orgId}`);
 
-  console.log("response after creating a borar", res);
+  console.log("response after creating a board", res);
 }

@@ -1,6 +1,5 @@
-import { createBoard } from "@/actions/create-board";
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
+
 import Form from "./form";
 import Board from "./board";
 
@@ -22,6 +21,7 @@ const OrganizationPage = async ({
               title={board.title}
               key={board.id}
               id={board.id}
+              orgId={params.id}
             />
           );
         })}
