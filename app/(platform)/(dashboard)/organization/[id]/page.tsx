@@ -2,6 +2,7 @@ import { createBoard } from "@/actions/create-board";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import Form from "./form";
+import Board from "./board";
 
 const OrganizationPage = async ({
   params,
@@ -17,7 +18,11 @@ const OrganizationPage = async ({
       <div className='space-y-2'>
         {boards.map((board) => {
           return (
-            <div key={board.id}>Title: {board.title}</div>
+            <Board
+              title={board.title}
+              key={board.id}
+              id={board.id}
+            />
           );
         })}
       </div>
